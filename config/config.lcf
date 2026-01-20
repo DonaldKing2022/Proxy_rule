@@ -1,0 +1,94 @@
+#Leo config
+#Date: 2026.01.20
+#Author: Leo Knox
+
+[General]
+sni-sniffing = true
+ipv6-vif = always
+dns-reject-mode = NXDomain
+disable-stun = true
+disconnect-on-policy-change = true
+dns-server = 123.123.123.124,223.5.5.5,2001:4860:4860::8888,2400:3200::1
+ip-mode = dual
+skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlynatics.com
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
+allow-wifi-access = false
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+proxy-test-url = http://cp.cloudflare.com/generate_204
+internet-test-url = http://wifi.vivo.com.cn/generate_204
+test-timeout = 3
+interface-mode = auto
+
+[Proxy]
+
+[Remote Proxy]
+
+[Proxy Chain]
+
+[Proxy Group]
+
+兜底 = select,ALL_Filter
+AI = select,ALL_Filter
+常用论坛 = select,ALL_Filter
+Leo = select,ALL_Filter
+谷歌服务 = select,ALL_Filter
+微软服务 = select,ALL_Filter
+PayPal = select,US_Filter
+Spotify = select,ALL_Filter
+Telegram = select,ALL_Filter
+TikTok = select,ALL_Filter
+X【Twitter】 = select,ALL_Filter
+流媒体 = select,ALL_Filter
+Apple = select,DIRECT,ALL_Filter
+Speedtest = select,ALL_Filter
+游戏平台 = select,ALL_Filter
+Direct = select,DIRECT,ALL_Filter
+BiliBili = select,DIRECT,ALL_Filter
+抖音 = select,DIRECT,ALL_Filter
+内网段【默认绕过】 = select,DIRECT,ALL_Filter
+
+[Remote Filter]
+ALL_Filter = NameRegex, FilterKey = ".*"
+HK_Filter = NameRegex, FilterKey = "(?i)(港|HK|Hong)"
+TW_Filter = NameRegex, FilterKey = "(?i)(台|TW|Tai)"
+JP_Filter = NameRegex, FilterKey = "(?i)(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan)"
+KR_Filter = NameRegex, FilterKey = "(?i)(KR|Korea|KOR|首尔|韩|韓)"
+US_Filter = NameRegex, FilterKey = "(?i)(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
+SG_Filter = NameRegex, FilterKey = "(?i)(新加坡|坡|狮城|SG|Singapore)"
+
+[Rule]
+FINAL,兜底
+#Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR
+#Strategy:DIRECT,PROXY,REJECT
+#Options:no-resolve(only for IP-CIDR,IP-CIDR2,GEOIP,IP-ASN)
+
+
+[Remote Rule]
+https://rule.nimama.de/Loon/rule/Adblock.list, policy=REJECT-DROP, tag=拦截广告跟踪器, enabled=true
+https://rule.nimama.de/Loon/rule/AI.list, policy=AI, tag=主流AI服务, enabled=true
+https://rule.nimama.de/Loon/rule/Apple.list, policy=Apple, tag=Apple服务, enabled=true
+https://rule.nimama.de/Loon/rule/BiliBili.list, policy=BiliBili, tag=B站, enabled=true
+https://rule.nimama.de/Loon/rule/Direct.list, policy=Direct, tag=直连规则, enabled=true
+https://rule.nimama.de/Loon/rule/DouYin.list, policy=抖音, tag=抖音分流, enabled=true
+https://rule.nimama.de/Loon/rule/Game.list, policy=游戏平台, tag=主流游戏平台, enabled=true
+https://rule.nimama.de/Loon/rule/Google.list, policy=谷歌服务, tag=谷歌服务, enabled=true
+https://rule.nimama.de/Loon/rule/leosweb.list, policy=Leo, tag=Leo的自有服务, enabled=true
+https://rule.nimama.de/Loon/rule/Microsoft.list, policy=微软服务, tag=微软服务, enabled=true
+https://rule.nimama.de/Loon/rule/nsweb.list, policy=常用论坛, tag=一些常用论坛, enabled=true
+https://rule.nimama.de/Loon/rule/PayPal.list, policy=PayPal, tag=PayPal, enabled=true
+https://rule.nimama.de/Loon/rule/special.list, policy=内网段【默认绕过】, tag=内网段, enabled=true
+https://rule.nimama.de/Loon/rule/Speedtest.list, policy=Speedtest, tag=测速分流, enabled=true
+https://rule.nimama.de/Loon/rule/Spotify.list, policy=Spotify, tag=Spotify, enabled=true
+https://rule.nimama.de/Loon/rule/Telegram.list, policy=Telegram, tag=Telegram, enabled=true
+https://rule.nimama.de/Loon/rule/TikTok.list, policy=TikTok, tag=TikTok, enabled=true
+https://rule.nimama.de/Loon/rule/Twitter.list, policy=X【Twitter】, tag=, enabled=true
+https://rule.nimama.de/Loon/rule/Video.list, policy=流媒体, tag=流媒体, enabled=true
+
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+[Mitm]
