@@ -29,11 +29,11 @@ interface-mode = auto
 [Proxy Group]
 
 兜底 = select,ALL_Filter
-AI = select,ALL_Filter
+AI = select,US_Filter,JP_Filter,KR_Filter,SG_Filter,TW_Filter,EU_Filter
 常用论坛 = select,ALL_Filter
 Leo = select,ALL_Filter
 谷歌服务 = select,ALL_Filter
-微软服务 = select,ALL_Filter
+微软服务 = select,DIRECT,ALL_Filter
 PayPal = select,US_Filter
 Spotify = select,ALL_Filter
 Telegram = select,ALL_Filter
@@ -41,8 +41,8 @@ TikTok = select,ALL_Filter
 X【Twitter】 = select,ALL_Filter
 流媒体 = select,ALL_Filter
 Apple = select,DIRECT,ALL_Filter
-Speedtest = select,ALL_Filter
-游戏平台 = select,ALL_Filter
+Speedtest = select,DIRECT,ALL_Filter
+游戏平台 = select,DIRECT,ALL_Filter
 Direct = select,DIRECT,ALL_Filter
 BiliBili = select,DIRECT,ALL_Filter
 抖音 = select,DIRECT,ALL_Filter
@@ -56,6 +56,7 @@ JP_Filter = NameRegex, FilterKey = "(?i)(日本|川日|东京|大阪|泉日|埼�
 KR_Filter = NameRegex, FilterKey = "(?i)(KR|Korea|KOR|首尔|韩|韓)"
 US_Filter = NameRegex, FilterKey = "(?i)(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
 SG_Filter = NameRegex, FilterKey = "(?i)(新加坡|坡|狮城|SG|Singapore)"
+EU_Filter = NameRegex, FilterKey = "(?i)(英|法|德|荷兰|波兰|瑞士|西班牙|奥地利|捷克|罗马尼亚|保加利亚|埃尔巴尼亚|爱沙尼亚)"
 
 [Rule]
 FINAL,兜底
